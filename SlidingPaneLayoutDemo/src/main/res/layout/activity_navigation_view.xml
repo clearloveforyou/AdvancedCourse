@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.hsl.android.qianfeng.advancedcourse.NavigationViewActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#938484"/>
+
+    <android.support.v4.widget.SlidingPaneLayout
+        android:id="@+id/sliding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <!--app:menu 取值为一个菜单资源-->
+        <!--app:headerLayout 取值为一个布局资源-->
+        <!--app:itemTextColor 取值为颜色值 #FFFFFF-->
+        <!--app:itemBackground 取值为一个颜色或者图片资源的引用-->
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            app:menu="@menu/sliding_menu"
+            app:itemTextColor="#4141a7"/>
+        <!--app:headerLayout="@layout/menu_header"-->
+        <TextView
+            android:id="@+id/txt_content2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="这是正文"
+            android:textSize="20sp"
+            android:gravity="center"/>
+
+    </android.support.v4.widget.SlidingPaneLayout>
+</RelativeLayout>

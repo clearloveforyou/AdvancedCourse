@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_menu_basketball"
+        android:checked="true"
+        android:icon="@mipmap/ic_launcher"
+        android:title="篮球" />
+    <item
+        android:id="@+id/main_menu_football"
+        android:icon="@mipmap/ic_launcher"
+        android:title="足球" />
+    <item
+        android:id="@+id/main_menu_pinpong"
+        android:icon="@mipmap/ic_launcher"
+        android:title="乒乓球" />
+
+    <group android:id="@+id/main_menu_test_group1">
+
+        <item android:id="@+id/group1_test1" android:icon="@mipmap/ic_launcher"
+            android:title="test1"/>
+        <item android:id="@+id/group1_test2" android:icon="@mipmap/ic_launcher"
+            android:title="test2"/>
+        <item android:id="@+id/group1_test3" android:icon="@mipmap/ic_launcher"
+            android:title="test3"/>
+    </group>
+
+    <group android:id="@+id/main_menu_test_group2">
+
+        <item android:id="@+id/group2_test4" android:icon="@mipmap/ic_launcher"
+            android:title="test4"/>
+        <item android:id="@+id/group2_test5" android:icon="@mipmap/ic_launcher"
+            android:title="test5"/>
+        <item android:id="@+id/group3_test6" android:icon="@mipmap/ic_launcher"
+            android:title="test6"/>
+    </group>
+
+</menu>

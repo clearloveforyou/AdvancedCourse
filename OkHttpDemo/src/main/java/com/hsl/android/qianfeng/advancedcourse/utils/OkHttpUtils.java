@@ -6,6 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -46,6 +48,33 @@ public class OkHttpUtils {
 
     private static Handler mHandler = new Handler();
 
+    //创建一个call任务的集合，便于取消请求
+    List<Call> callList = new ArrayList<>();
+
+
+    /**
+     * 将此工具类设为单例模式(多线程单例)(双重校验锁)
+     */
+
+    //定义一个私有的静态全局变量来保存该类的唯一实例
+    private volatile static OkHttpUtils okHttpUtils;
+    //私有构造器
+    private OkHttpUtils(){}
+    //公开方法
+    public static OkHttpUtils getInstance(){
+
+        if (okHttpUtils == null){
+
+            synchronized (OkHttpUtils.class){
+                if (okHttpUtils == null){
+                    okHttpUtils = new OkHttpUtils();
+                }
+            }
+        }
+        return okHttpUtils;
+    }
+
+    //
     /**
      * get请求
      * @param url
@@ -53,7 +82,7 @@ public class OkHttpUtils {
      * @param okCallBack
      * @param <T>
      */
-    public static <T> void okGet(String url, final Class<T> cls, final IOkCallBack okCallBack) {
+    public <T> void okGet(String url, final Class<T> cls, final IOkCallBack okCallBack) {
 
         LogTool.LOG_D(OkHttpUtils.class,"--->4=" + url);
         //1.创建请求
@@ -62,6 +91,7 @@ public class OkHttpUtils {
                 .build();
         //2.创建Call任务
         Call call = okHttpClient.newCall(request);
+        callList.add(call);
         //3.异步请求
         call.enqueue(new Callback() {
 
@@ -116,7 +146,7 @@ public class OkHttpUtils {
      * @param iOkCallBack 回调接口
      * @param <T>
      */
-    public static <T> void okPost(String url,Map<String,String> param, final Class<T> cls, final IOkCallBack iOkCallBack) {
+    public <T> void okPost(String url,Map<String,String> param, final Class<T> cls, final IOkCallBack iOkCallBack) {
 
         //application/json是Http协议中的ContentType，charset=utf-8是Http协议中的编码格式
         //制定参数的编码方式和参数的格式
@@ -131,6 +161,7 @@ public class OkHttpUtils {
                 .build();
         //2.创建Call任务
         Call call = okHttpClient.newCall(request);
+        callList.add(call);
         //3.异步请求
         call.enqueue(new Callback() {
             @Override
@@ -182,5 +213,21 @@ public class OkHttpUtils {
     public interface IOkCallBack<E> {
 
         public void onSuccess(E resultInfo);
+    }
+
+    /**
+     * 取消请求
+     */
+    public void cancel(){
+
+        if (callList != null && callList.size() != 0){
+
+            for (int i = 0,len = callList.size();i<len;i++){
+
+                callList.get(i).cancel();
+            }
+
+            callList.clear();
+        }
     }
 }

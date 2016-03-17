@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void postOkHttp() {
 
-        OkHttpUtils.okPost(TestUrl.FRUIT_URL, getMapParam(), AppEntity.class, new OkHttpUtils.IOkCallBack() {
+        OkHttpUtils.getInstance().okPost(TestUrl.FRUIT_URL, getMapParam(), AppEntity.class, new OkHttpUtils.IOkCallBack() {
             @Override
             public void onSuccess(Object resultInfo) {
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getOkHttp() {
         LogTool.LOG_D(MainActivity.class,"--->2");
-        OkHttpUtils.okGet(TestUrl.TEA_URL, AppEntity.class, new OkHttpUtils.IOkCallBack<AppEntity>() {
+        OkHttpUtils.getInstance().okGet(TestUrl.TEA_URL, AppEntity.class, new OkHttpUtils.IOkCallBack<AppEntity>() {
             @Override
             public void onSuccess(AppEntity resultInfo) {
 
@@ -79,5 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
         return map;
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //取消请求
+        OkHttpUtils.getInstance().cancel();
     }
 }

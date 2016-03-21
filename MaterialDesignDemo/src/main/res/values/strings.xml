@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AdvancedCourse</string>
+
+    <array name="demo">
+        <item>CoordinatorLayout【协调者】的使用</item>
+        <item>AppBarLayout的使用</item>
+        <item>CollapsingToolBarLayout的使用</item>
+        <item>自定义Behavior</item>
+        <item>SnackBar</item>
+        <item>FloatingActionButton</item>
+    </array>
+</resources>

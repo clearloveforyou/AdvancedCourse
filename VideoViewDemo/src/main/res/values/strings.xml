@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AdvancedCourse</string>
+
+    <array name="index">
+
+        <item>VideoView的使用</item>
+        <item>VideoView的全屏使用</item>
+        <item>显示到SurfaceVeiw上的视频</item>
+        <item>listView中的视频播放</item>
+
+    </array>
+</resources>

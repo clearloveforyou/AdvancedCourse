@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkSpace\\AdvancedCourse\\alipayDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\msp_demo_title_bg.png",
+        "source": "D:\\AndroidStudioWorkSpace\\AdvancedCourse\\alipayDemo\\src\\main\\res\\drawable-hdpi\\msp_demo_title_bg.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkSpace\\AdvancedCourse\\alipayDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\msp_icon.png",
+        "source": "D:\\AndroidStudioWorkSpace\\AdvancedCourse\\alipayDemo\\src\\main\\res\\drawable-hdpi\\msp_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkSpace\\AdvancedCourse\\alipayDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\msp_demo_title.png",
+        "source": "D:\\AndroidStudioWorkSpace\\AdvancedCourse\\alipayDemo\\src\\main\\res\\drawable-hdpi\\msp_demo_title.png"
+    }
+]

@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private void one(){
         //第一个版本
     }
+    private void two(){
+        //第二个版本
+    }
     private int[] tabIcons = {
             R.drawable.tab1,
             R.drawable.tab2,

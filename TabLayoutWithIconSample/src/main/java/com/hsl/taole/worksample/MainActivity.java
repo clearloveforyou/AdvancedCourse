@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tab;
     private ViewPager vp;
     private List<String> titles;
-
+    private void one(){
+        //第一个版本
+    }
     private int[] tabIcons = {
             R.drawable.tab1,
             R.drawable.tab2,
